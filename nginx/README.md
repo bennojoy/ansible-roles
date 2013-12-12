@@ -14,6 +14,7 @@ Role Variables
 
 The variables that can be passed to this role and a brief description about them are as follows.
 
+```
 nginx_max_clients: 512                                # The max clients allowed
 nginx_http_params:                                    # A hash of the http paramters. note that any valid http paramters can be
   sendfile: "on"                                      # added here.
@@ -38,7 +39,7 @@ nginx_sites:                                         # A list of hash's that def
     root: "/tmp/site2"
     location1: {name: /, try_files: "$uri $uri/ /index.html"}
     location2: {name: /images/, try_files: "$uri $uri/ /index.html"}
-
+```
 
 - Examples of using this role 
 
@@ -108,8 +109,10 @@ None
 License
 -------
 
+BSD
 
 Author Information
 ------------------
+
 Ansible staff
 

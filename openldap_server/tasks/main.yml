@@ -25,12 +25,14 @@
 - name: Copy the slapd.conf configuration file for Redhat
   template: src=slapd.conf.j2 dest={{ app_path }}/slapd.conf
   when: ansible_os_family == "RedHat"
-  notify: restart slapd
+  notify: 
+   - restart slapd
 
 - name: Copy the slapd.conf configuration file
   template: src=slapd.conf_ubuntu.j2 dest={{ app_path }}/slapd.conf
   when: ansible_os_family == "Debian"
-  notify: restart slapd
+  notify: 
+   - restart slapd
 
 - name: Copy the ldap.conf configuration file
   template: src=ldap.conf.j2 dest={{ app_path }}/ldap.conf
@@ -56,18 +58,21 @@
 - name: copy the supporting files
   copy: src=ldap dest=/etc/sysconfig/ldap mode=0755
   when: enable_ssl and ansible_os_family == 'RedHat'
-  notify: restart slapd
+  notify: 
+   - restart slapd
 
 
 - name: copy the supporting files
   copy: src=slapd_fedora dest=/etc/sysconfig/slapd mode=0755
   when: enable_ssl and ansible_distribution == "Fedora"
-  notify: restart slapd
+  notify: 
+   - restart slapd
 
 - name: copy the supporting files
   copy: src=slapd dest=/etc/default/slapd mode=0755
   when: enable_ssl and ansible_os_family == 'Debian'
-  notify: restart slapd
+  notify: 
+   - restart slapd
 
 - name: start the slapd service
   service: name=slapd state=started enabled=yes 

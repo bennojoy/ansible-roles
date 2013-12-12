@@ -22,9 +22,11 @@ Role Variables
 
 The variables that can be passed to this role and a brief description about them are as follows:
 
+```
 network_ether_interfaces: []                   #The list of ethernet interfaces to be added to the sytem
 network_bridge_interfaces: []                  #The list of bridge interfaces to be added to the sytem
 network_bond_interfaces: []                    #The list of bond interfaces to be added to the sytem
+```
 
 Note: The values for the list are listed in the example's below.
 
@@ -184,8 +186,9 @@ None
 License
 -------
 
+BSD
 
 Author Information
 ------------------
 
-
+Ansible Staff

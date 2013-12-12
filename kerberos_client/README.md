@@ -43,6 +43,7 @@ None
 License
 -------
 
+BSD
 
 Author Information
 ------------------

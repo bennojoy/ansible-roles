@@ -15,7 +15,8 @@
 
 - name: Copy the my.cnf file 
   template: src=my.cnf.{{ ansible_os_family }}.j2 dest={{ mysql_conf_dir }}/my.cnf
-  notify: restart mysql
+  notify: 
+   - restart mysql
 
 - name: Start the mysql services Redhat
   service: name={{ mysql_service }} state=started enabled=yes

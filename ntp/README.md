@@ -13,6 +13,7 @@ Role Variables
 
 The variables that can be passed to this role and a brief description about them are as follows:
 
+```
 driftfile: /var/lib/ntp/drifta                                      # The driftfile
 server: [0.ubuntu.pool.ntp.org, 1.ubuntu.pool.ntp.org]              # The server to sync time with
 restrict:                                                           # List of restrict's for ntp daemon
@@ -30,6 +31,7 @@ statistics: no
 broadcast: no                                                       #Broadcast the time in network
 broadcastclient: no                                                 #Function as a broadcast client
 multicastclient: no                                                 # Function as multicast client
+```
 
 - Examples
 
@@ -61,6 +63,7 @@ None
 License
 -------
 
+BSD
 
 Author Information
 ------------------

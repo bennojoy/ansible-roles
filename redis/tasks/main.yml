@@ -17,12 +17,14 @@
 
 - name: Copy the redis configuration file 
   template: src=redis.conf.j2 dest=/etc/redis.conf
-  notify: restart redis redhat
+  notify: 
+   - restart redis redhat
   when: ansible_os_family == "RedHat"
 
 - name: Copy the client configuration file 
   template: src=redis.conf.j2 dest=/etc/redis/redis.conf
-  notify: restart redis ubuntu
+  notify: 
+   - restart redis ubuntu
   when: ansible_os_family == "Debian"
 
 - name: Set the max open file descriptors 

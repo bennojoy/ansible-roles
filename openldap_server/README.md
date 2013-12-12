@@ -14,6 +14,7 @@ Role Variables
 
 The variables that can be passed to this role and a brief description about them are as follows:
 
+```
 domain_name: example.com               # The domain prefix for ldap
 rootpw: passme                         # This is the password for admin for openldap
 
@@ -22,7 +23,7 @@ country: US                            # The self signed ssl certificate paramet
 state: oregon
 location: portland
 organization: IT
-
+```
 
 Dependencies
 ------------
@@ -32,6 +33,7 @@ None
 License
 -------
 
+BSD
 
 Author Information
 ------------------

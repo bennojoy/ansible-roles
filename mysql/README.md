@@ -17,6 +17,7 @@ Role Variables
 
 The variables that can be passed to this role and a brief description about them are as follows:
 
+```
 mysql_port: 3306                          # The Port for mysql server to listen
 mysql_bind_address: "0.0.0.0"             # The bind address for mysql server
 mysql_root_db_pass: foobar                # The root DB password
@@ -38,6 +39,8 @@ mysql_repl_user:                          # If the database is replicated the us
 
 mysql_repl_role: master                   # The role of db in replication 
 mysql_db_id: 7                            # A unique id for the mysql server (used in replication)
+
+```
 
 - Examples
 
@@ -94,7 +97,10 @@ None
 License
 -------
 
+BSD
+
 Author Information
 ------------------
+
 Ansible staff 
 

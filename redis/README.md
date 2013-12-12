@@ -14,6 +14,7 @@ Role Variables
 
 The variables that can be passed to this role and a brief description about them are as follows:
 
+```
 redis_port: 6379                           # Port for redis server
 syslog_enabled: "yes"                      # enable_syslog
 databases: 16                              # Set number of databases
@@ -34,9 +35,11 @@ appendfsync: everysec                      # How often to sync fs
 master_ip: 1.1.1.1                         # The master's ip
 master_port: 6379                          # master port
 master_auth: None                          # master auth
+```
 
 - Examples:
 
+The Following example sets up a master redis server.
 ```
 - hosts: all
   sudo: true
@@ -66,9 +69,11 @@ None
 License
 -------
 
+BSD
 
 Author Information
 ------------------
+
 Ansible Staff
 
 
