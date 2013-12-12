@@ -14,6 +14,8 @@ Role Variables
 
 The variables that can be passed to this role and a brief description about them are as follows:
 
+```
+
 realm_name: EXAMPLE.COM                   # The name of the kerberos Realm
 
 kdc_hostname: kerberos                    # The hostname running the kerberos server
@@ -30,6 +32,7 @@ renew_lifetime: "7d"                      # when to renew the lifetime
 
 forwardable: "true"                       # Obtain a forwardable ticket.
 
+```
 
 - Example
 
