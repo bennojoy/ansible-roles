@@ -1,0 +1,38 @@
+---
+
+- name: Install the epel packages 
+  yum: name=http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm state=present
+  when: ansible_os_family == "RedHat"
+
+- name: Install the Redis packages 
+  yum: name={{ item }} state=present
+  with_items: redhat_pkg
+  when: ansible_os_family == "RedHat"
+
+- name: Install the Redis packages 
+  apt: name={{ item }} state=present update_cache=yes
+  with_items: ubuntu_pkg
+  environment: env
+  when: ansible_os_family == "Debian"
+
+- name: Copy the redis configuration file 
+  template: src=redis.conf.j2 dest=/etc/redis.conf
+  notify: restart redis redhat
+  when: ansible_os_family == "RedHat"
+
+- name: Copy the client configuration file 
+  template: src=redis.conf.j2 dest=/etc/redis/redis.conf
+  notify: restart redis ubuntu
+  when: ansible_os_family == "Debian"
+
+- name: Set the max open file descriptors 
+  sysctl: name=vm.overcommit_memory value=1 state=present
+
+- name: start the redis service
+  service: name=redis state=started enabled=yes
+  when: ansible_os_family == "RedHat"
+
+- name: start the redis service
+  service: name=redis-server state=started enabled=yes
+  when: ansible_os_family == "Debian"
+

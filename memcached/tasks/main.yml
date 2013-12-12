@@ -1,0 +1,29 @@
+---
+
+- name: Install the memcached packages 
+  yum: name={{ item }} state=present
+  with_items: redhat_pkg
+  when: ansible_os_family == "RedHat"
+
+- name: Install the memcached packages 
+  apt: name={{ item }} state=present update_cache=yes
+  with_items: ubuntu_pkg
+  environment: env
+  when: ansible_os_family == "Debian"
+
+- name: Copy the client configuration file 
+  template: src=memcached.j2 dest=/etc/sysconfig/memcached
+  notify: restart memcached
+  when: ansible_os_family == "RedHat"
+
+- name: Copy the client configuration file 
+  template: src=memcached.conf.j2 dest=/etc/memcached.conf
+  notify: restart memcached
+  when: ansible_os_family == "Debian"
+
+- name: Set the max open file descriptors 
+  sysctl: name=fs.file-max value={{ fs_file_max }} state=present
+
+- name: start the memcached service
+  service: name=memcached state=started enabled=yes
+

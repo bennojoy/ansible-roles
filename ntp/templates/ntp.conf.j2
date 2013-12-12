@@ -1,0 +1,50 @@
+#{{ ansible_managed }}
+
+driftfile {{ driftfile }}
+{% for i in server %}
+server {{ i }}
+{% endfor %}
+
+{% for i in restrict %}
+restrict {{ i }}
+{% endfor %}
+
+{% if crypto %}
+crypto
+{% endif %}
+
+{% if includefile %}
+includefile  {{ includefile }}
+{% endif %}
+
+{% if keys %}
+keys {{ keys }}
+{% endif %}
+
+{% if trustedkey %}
+trustedkey {{ trustedkey }}
+{% endif %}
+
+{% if requestkey %}
+requestkey  {{ requestkey }}
+{% endif %}
+
+{% if controlkey %}
+controlkey {{ controlkey }}
+{% endif %}
+
+{% if statistics %}
+statistics {{ statistics }}
+{% endif %}
+
+{% if broadcast %}
+broadcast {{ broadcast }}
+{% endif %}
+
+{% if broadcastclient %}
+broadcastclient
+{% endif %}   
+
+{% if multicastclient %}
+multicastclient {{ multicastclient }}
+{% endif %}   

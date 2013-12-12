@@ -1,0 +1,13 @@
+---
+galaxy_info:
+  author: "Ansible Employee"
+  company: AnsibleWorks
+  license: license (GPLv3)
+  min_ansible_version: 1.4 (or higher)
+  platforms:
+   Centos 5/6
+   Rhel 5/6
+   Ubuntu 12.x/13.x
+  categories:
+dependencies:
+  

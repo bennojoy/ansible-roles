@@ -1,0 +1,24 @@
+---
+
+redis_port: 6379
+syslog_enabled: "yes"
+databases: 16
+database_save_times:
+  - [900, 1]
+  - [300, 10]
+  - [60, 10000]
+dbfilename: dump.rdb
+db_dir: /var/lib/redis
+redis_role: master
+requirepass: false
+redis_pass: None
+max_clients: 128
+max_memory: 512mb
+maxmemory_policy: volatile-lru
+appendfsync: everysec
+#If role is slave set these values too
+master_ip: 1.1.1.1
+master_port: 6379
+master_auth: None
+
+
