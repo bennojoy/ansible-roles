@@ -21,7 +21,7 @@
   file: path=/dev/random src=/dev/urandom state=link force=yes
 
 - name: Create the initial kerberos database
-  shell: echo -e "{{ master_db_pass }}\n{{ master_db_pass }}" | kdb5_util create -s; touch /var/kerberos/db_created creates=/var/kerberos/db_created
+  shell: kdb5_util -P {{ master_db_pass }} create -s; touch /var/kerberos/db_created creates=/var/kerberos/db_created
 
 - name: Make sure we have the entry for hostname in /etc/hosts
   host: ip={{ ansible_default_ipv4.address }} hostname={{ ansible_hostname }} alias="{{ ansible_hostname + '.' + realm_name|lower() }}"
@@ -31,6 +31,6 @@
   with_items: redhat_service
 
 - name: Create an admin for the administering the kerberos database
-  shell: echo -e "{{ kadmin_pass }}\n{{ kadmin_pass }}" | kadmin.local  -q "addprinc {{ kadmin_user }}/admin"; touch /var/kerberos/admin_created creates=/var/kerberos/admin_created
+  shell: kadmin.local -q "addprinc -pw {{ kadmin_pass }} {{ kadmin_user }}/admin"; touch /var/kerberos/admin_created creates=/var/kerberos/admin_created
 
 
