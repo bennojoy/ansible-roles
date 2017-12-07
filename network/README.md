@@ -1,7 +1,7 @@
 network
 ========
 
-This roles enables users to configure various network components  in thier servers. The role can be used to configure
+This roles enables users to configure various network components  in their servers. The role can be used to configure
 
 -  Ethernet Interfaces
 
